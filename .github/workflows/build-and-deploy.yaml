@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Install Redocly CLI
+        run: npm install -g @redocly/cli@latest
       - name: Bundle Docs
         run: redocly bundle -o brewery-oa3.yaml
       - name: Build API Docs
