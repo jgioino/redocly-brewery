@@ -11,12 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install Redocly CLI
-        run: npm install -g @redocly/cli@latest
-      - name: Bundle Docs
-        run: redocly bundle -o brewery-oa3.yaml
-      - name: Build API Docs
-        run: redocly build-docs brewery-oa3.yaml -o index.html
+      - name: Bundle and Build API Docs
+        run: ./make.sh
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
